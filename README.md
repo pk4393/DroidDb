@@ -31,8 +31,8 @@ Step 2. Add the dependency
   
 Step 2. Add the dependency
 
-<dependency>
+	<dependency>
 	    <groupId>com.github.pk4393</groupId>
 	    <artifactId>DroidDb</artifactId>
 	    <version>1.0.0</version>
-</dependency>
+	</dependency>
