@@ -29,11 +29,11 @@ public class PreferencesDao extends DbContentProvider implements IPreferencesDao
   @Override
   protected String fetchData(String key, String defaultValue) {
     String data = "";
-    Cursor cursor = super.query(DB_TABLE_PREFERENCES, new String[] {TABLE_PREFERENCES_VALUE},
-        TABLE_PREFERENCES_KEY + "=?", new String[] {key});
+    Cursor cursor = super.query(DROID_DB_TABLE_PREFERENCES, new String[] {DROID_DB_TABLE_PREFERENCES_VALUE},
+        DROID_DB_TABLE_PREFERENCES_KEY + "=?", new String[] {key});
     if (cursor != null) {
       if (cursor.moveToNext()) {
-        data = cursor.getString(cursor.getColumnIndex(TABLE_PREFERENCES_VALUE));
+        data = cursor.getString(cursor.getColumnIndex(DROID_DB_TABLE_PREFERENCES_VALUE));
       }
       cursor.close();
     }
@@ -45,51 +45,51 @@ public class PreferencesDao extends DbContentProvider implements IPreferencesDao
 
   @Override
   protected long addData(String key, String value) {
-    return super.replace(DB_TABLE_PREFERENCES, setContentValue(key, value));
+    return super.replace(DROID_DB_TABLE_PREFERENCES, setContentValue(key, value));
   }
 
   @Override
-  public void addLong(String key, long longValue) {
+  public void addLongValue(@NonNull String key, long longValue) {
     addData(key, String.valueOf(longValue));
   }
 
   @Override
-  public void addString(String key, String stringValue) {
+  public void addStringValue(@NonNull String key, String stringValue) {
     addData(key, stringValue);
   }
 
   @Override
-  public void addInt(String key, int intValue) {
+  public void addIntValue(@NonNull String key, int intValue) {
     addData(key, String.valueOf(intValue));
   }
 
   @Override
-  public void addObject(String key, Object object) {
+  public void addObject(@NonNull String key, Object object) {
     addData(key, gson.toJson(object));
   }
 
   @Override
-  public void addBoolean(String key, boolean booleanValue) {
+  public void addBooleanValue(@NonNull String key, boolean booleanValue) {
     addData(key, String.valueOf(booleanValue));
   }
 
   @Override
-  public long getLong(String key) {
+  public long getLongValue(@NonNull String key) {
     return Long.valueOf(fetchData(key, "0"));
   }
 
   @Override
-  public String getString(String key) {
+  public String getStringValue(@NonNull String key) {
     return fetchData(key, "");
   }
 
   @Override
-  public int getInt(String key) {
+  public int getIntValue(@NonNull String key) {
     return Integer.valueOf(fetchData(key, "0"));
   }
 
   @Override
-  public <T> T getObject(String key, @NonNull Class<T> a) {
+  public <T> T getObject(@NonNull String key, @NonNull Class<T> a) {
     String gsonData = fetchData(key, null);
     if (gsonData == null) {
       return null;
@@ -104,7 +104,7 @@ public class PreferencesDao extends DbContentProvider implements IPreferencesDao
   }
 
   @Override
-  public <T> T getObject(String key, @NonNull Type typeToken) {
+  public <T> T getObject(@NonNull String key, @NonNull Type typeToken) {
     String gsonData = fetchData(key, null);
     if (gsonData == null) {
       return null;
@@ -119,29 +119,29 @@ public class PreferencesDao extends DbContentProvider implements IPreferencesDao
   }
 
   @Override
-  public boolean getBoolean(String key) {
+  public boolean getBooleanValue(@NonNull String key) {
     return Boolean.valueOf(fetchData(key, "false"));
   }
 
   @Override
-  public void addDouble(String key, double doubleValue) {
+  public void addDoubleValue(@NonNull String key, double doubleValue) {
     addData(key, String.valueOf(doubleValue));
   }
 
   @Override
-  public double getDouble(String key) {
+  public double getDoubleValue(@NonNull String key) {
     return Double.valueOf(fetchData(key, "0"));
   }
 
   @Override
-  public void clearAllData() {
-    super.delete(DB_TABLE_PREFERENCES, null, null);
+  public void clearAllDroidDbData() {
+    super.delete(DROID_DB_TABLE_PREFERENCES, null, null);
   }
 
   private ContentValues setContentValue(String key, String value) {
     ContentValues values = new ContentValues();
-    values.put(TABLE_PREFERENCES_KEY, key);
-    values.put(TABLE_PREFERENCES_VALUE, value);
+    values.put(DROID_DB_TABLE_PREFERENCES_KEY, key);
+    values.put(DROID_DB_TABLE_PREFERENCES_VALUE, value);
     return values;
   }
 }

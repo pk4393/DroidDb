@@ -9,31 +9,31 @@ import android.support.annotation.NonNull;
  */
 
 public interface IPreferencesDao {
-  void addLong(String key, long longValue);
+  void addLongValue(@NonNull String key, long longValue);
 
-  void addString(String key, String stringValue);
+  void addStringValue(@NonNull String key, String stringValue);
 
-  void addInt(String key, int intValue);
+  void addIntValue(@NonNull String key, int intValue);
 
-  void addObject(String key, Object object);
+  void addObject(@NonNull String key, Object object);
 
-  void addBoolean(String key, boolean booleanValue);
+  void addBooleanValue(@NonNull String key, boolean booleanValue);
 
-  long getLong(String key);
+  long getLongValue(@NonNull String key);
 
-  String getString(String key);
+  String getStringValue(@NonNull String key);
 
-  int getInt(String key);
+  int getIntValue(@NonNull String key);
 
-  <T> T getObject(String key, @NonNull Class<T> a);
+  <T> T getObject(@NonNull String key, @NonNull Class<T> a);
 
-  <T> T getObject(String key, Type typeToken);
+  <T> T getObject(@NonNull String key, Type typeToken);
 
-  boolean getBoolean(String key);
+  boolean getBooleanValue(@NonNull String key);
 
-  void addDouble(String key, double doubleValue);
+  void addDoubleValue(@NonNull String key, double doubleValue);
 
-  double getDouble(String key);
+  double getDoubleValue(@NonNull String key);
 
-  void clearAllData();
+  void clearAllDroidDbData();
 }

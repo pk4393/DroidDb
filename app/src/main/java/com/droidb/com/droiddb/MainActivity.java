@@ -15,14 +15,17 @@ public class MainActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
     mPreferencesDao = Database.getDataDao();
-    mPreferencesDao.addBoolean("DbBooleanDemo", true);
-    mPreferencesDao.addInt("DbIntDemo", 4393);
-    mPreferencesDao.addLong("DbLongDemo", 4393L);
-    mPreferencesDao.addString("DbStringDemo", "DbDemo");
+    mPreferencesDao.addBooleanValue("DbBooleanDemo", true);
+    mPreferencesDao.addIntValue("DbIntDemo", 4393);
+    mPreferencesDao.addLongValue("DbLongDemo", 4393L);
+    mPreferencesDao.addStringValue("DbStringDemo", "DbDemo");
+    mPreferencesDao.addObject("DbObjectDemo", "DbDemo");
 
-    Log.e("DbBooleanDemo : ", String.valueOf(mPreferencesDao.getBoolean("DbBooleanDemo")));
-    Log.e("DbIntDemo : ", String.valueOf(mPreferencesDao.getInt("DbIntDemo")));
-    Log.e("DbLongDemo : ", String.valueOf(mPreferencesDao.getLong("DbLongDemo")));
-    Log.e("DbStringDemo : ", String.valueOf(mPreferencesDao.getString("DbStringDemo")));
+    Log.e("DbBooleanDemo : ", String.valueOf(mPreferencesDao.getBooleanValue("DbBooleanDemo")));
+    Log.e("DbIntDemo : ", String.valueOf(mPreferencesDao.getIntValue("DbIntDemo")));
+    Log.e("DbLongDemo : ", String.valueOf(mPreferencesDao.getLongValue("DbLongDemo")));
+    Log.e("DbStringDemo : ", String.valueOf(mPreferencesDao.getStringValue("DbStringDemo")));
+    Log.e("DbObjectDemo : ",
+        String.valueOf(mPreferencesDao.getObject("DbObjectDemo", String.class)));
   }
 }
