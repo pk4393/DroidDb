@@ -48,15 +48,15 @@ Database.getDataDao().addDoubleValue("DbDoubleDemo", 4393d);
 
 ```sh
 
-boolean dbBooleanDemo = Database.getDataDao().addBooleanValue("DbBooleanDemo", true);
+boolean dbBooleanDemo = Database.getDataDao().getBooleanValue("DbBooleanDemo", true);
 
-int dbIntDemo = Database.getDataDao().addIntValue("DbIntDemo", 4393);
+int dbIntDemo = Database.getDataDao().getIntValue("DbIntDemo", 4393);
 
-long dbLongDemo = Database.getDataDao().addLongValue("DbLongDemo", 4393L);
+long dbLongDemo = Database.getDataDao().getLongValue("DbLongDemo", 4393L);
 
-String dbStringDemo = Database.getDataDao().addStringValue("DbStringDemo", "DbDemo");
+String dbStringDemo = Database.getDataDao().getStringValue("DbStringDemo", "DbDemo");
 
-double dbDoubleDemo = Database.getDataDao().addDoubleValue("DbDoubleDemo", 4393d);
+double dbDoubleDemo = Database.getDataDao().getDoubleValue("DbDoubleDemo", 4393d);
 ```
 
 
